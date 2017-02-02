@@ -19,7 +19,6 @@ class MedianFilter:
     
     def ImagesRGB(self):
         pixels = self.Pixels()
-        rgb = []
         img1 = Image.open(self.png[0]).convert('RGB')
         img2 = Image.open(self.png[1]).convert('RGB')
         img3 = Image.open(self.png[2]).convert('RGB')
@@ -29,37 +28,57 @@ class MedianFilter:
         img7 = Image.open(self.png[6]).convert('RGB')
         img8 = Image.open(self.png[7]).convert('RGB')
         img9 = Image.open(self.png[8]).convert('RGB')
-        
-        for coor in pixels:
-            rgb.append([img1.getpixel(coor),
-                        img2.getpixel(coor),
-                        img3.getpixel(coor),
-                        img4.getpixel(coor),
-                        img5.getpixel(coor),
-                        img6.getpixel(coor),
-                        img7.getpixel(coor),
-                        img8.getpixel(coor),
-                        img9.getpixel(coor)
-                        ])
-        return rgb
-        
-    def PixelAverage(self):
-        rgb = self.ImagesRGB()
-        pixels = self.Pixels()
-        rgb_average = []
-        for pixel in rgb:
+        for pixel in pixels:
             r = []
             g = []
             b = []
-            for tup in pixel:
-                r.append(tup[0])
-                g.append(tup[1])
-                b.append(tup[2])
+            r.append(img1.getpixel(pixel)[0])
+            g.append(img1.getpixel(pixel)[1])
+            b.append(img1.getpixel(pixel)[2])
+            
+            r.append(img2.getpixel(pixel)[0])
+            g.append(img2.getpixel(pixel)[1])
+            b.append(img2.getpixel(pixel)[2])
+            
+            r.append(img3.getpixel(pixel)[0])
+            g.append(img3.getpixel(pixel)[1])
+            b.append(img3.getpixel(pixel)[2])
+            
+            r.append(img4.getpixel(pixel)[0])
+            g.append(img4.getpixel(pixel)[1])
+            b.append(img4.getpixel(pixel)[2])
+            
+            r.append(img5.getpixel(pixel)[0])
+            g.append(img5.getpixel(pixel)[1])
+            b.append(img5.getpixel(pixel)[2])
+            
+            r.append(img6.getpixel(pixel)[0])
+            g.append(img6.getpixel(pixel)[1])
+            b.append(img6.getpixel(pixel)[2])
+            
+            r.append(img7.getpixel(pixel)[0])
+            g.append(img7.getpixel(pixel)[1])
+            b.append(img7.getpixel(pixel)[2])
+            
+            r.append(img8.getpixel(pixel)[0])
+            g.append(img8.getpixel(pixel)[1])
+            b.append(img8.getpixel(pixel)[2])
+            
+            r.append(img9.getpixel(pixel)[0])
+            g.append(img9.getpixel(pixel)[1])
+            b.append(img9.getpixel(pixel)[2])
+            
             r_med = sorted(r)[len(r)/2]
             g_med = sorted(g)[len(g)/2]
             b_med = sorted(b)[len(b)/2]
-            rgb_average.append((r_med,g_med,b_med))
-        return rgb_average
+            self.rgb_average.append((r_med,g_med,b_med))
+        return self.rgb_average
+        
+    def PixelAverage(self):
+        #rgb = self.ImagesRGB()
+        pixels = self.Pixels()
+        self.rgb_average = []
+        return self.rgb_average
     
     def MakePicture(self):
         rgb_average = self.PixelAverage()
