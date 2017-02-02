@@ -3,12 +3,8 @@ import os
 import time
 
 class MedianFilter:
-    def __init__(self):
-        self.png = []
-        for filename in os.listdir('/home/ubuntu/workspace/Project'):
-            if filename.endswith(".png") and filename[0].isdigit():
-                self.png.append(filename)
-        self.png = sorted(self.png)
+    def __init__(self, png):
+        self.png = sorted(png)
         self.image_amount = len(self.png)
         self.img_width = Image.open(self.png[0]).size[0]
         self.img_height = Image.open(self.png[0]).size[1]
@@ -63,7 +59,12 @@ class MedianFilter:
         new_image.save("final.png")
         print "Your new picture is ready!"
 
-Filter = MedianFilter()
+png = []
+for filename in os.listdir('/home/ubuntu/workspace/Project'):
+    if filename.endswith(".png") and filename[0].isdigit():
+        png.append(filename)
+        
+Filter = MedianFilter(png)
 start = time.time()
 Filter.MakePicture()
 print "This code took: " + str(time.time()-start) + " seconds."
