@@ -60,7 +60,7 @@ class MedianFilter:
         rgb_average = self.PixelAverage()
         new_image = Image.new('RGB',(self.img_width, self.img_height))
         new_image.putdata(rgb_average)
-        new_image.save("final.png")
+        new_image.save("final2.png")
         print "Your new picture is ready!"
 
 Filter = MedianFilter()
