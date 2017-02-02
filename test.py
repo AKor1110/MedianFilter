@@ -18,7 +18,6 @@ class MedianFilter:
         return pixels
     
     def ImagesRGB(self):
-        pixels = self.Pixels()
         img1 = Image.open(self.png[0]).convert('RGB')
         img2 = Image.open(self.png[1]).convert('RGB')
         img3 = Image.open(self.png[2]).convert('RGB')
@@ -28,6 +27,8 @@ class MedianFilter:
         img7 = Image.open(self.png[6]).convert('RGB')
         img8 = Image.open(self.png[7]).convert('RGB')
         img9 = Image.open(self.png[8]).convert('RGB')
+        pixels = self.Pixels()
+        rgb_average = []
         for pixel in pixels:
             r = []
             g = []
@@ -71,19 +72,14 @@ class MedianFilter:
             r_med = sorted(r)[len(r)/2]
             g_med = sorted(g)[len(g)/2]
             b_med = sorted(b)[len(b)/2]
-            self.rgb_average.append((r_med,g_med,b_med))
-        return self.rgb_average
-        
-    def PixelAverage(self):
-        pixels = self.Pixels()
-        self.rgb_average = []
-        return self.rgb_average
+            rgb_average.append((r_med,g_med,b_med))
+        return rgb_average
     
     def MakePicture(self):
-        rgb_average = self.PixelAverage()
+        rgb_average = self.ImagesRGB()
         new_image = Image.new('RGB',(self.img_width, self.img_height))
         new_image.putdata(rgb_average)
-        new_image.save("final.png")
+        new_image.save("test.png")
         print "Your new picture is ready!"
 
 Filter = MedianFilter()

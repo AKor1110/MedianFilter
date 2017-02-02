@@ -5,15 +5,6 @@ Date: 2/1/17
 Program Purpose: Create a median filter using Python library PIL.
 --------------------------------------------------------------------------------
 
-~~~The Complexity~~~
---------------------------------------------------------------------------------
-    There are two different files that are optimized in different ways.
-    project_1.py is O(n^2) and runs in around 4 seconds, and is made at this
-    complexity for the convenience of easy to read code and comprehensibility.
-    project_1.1.py is O(n) and runs in around .05 seconds, and is made like this
-    simply for the speed of the program.
---------------------------------------------------------------------------------
-
 ~~~The Class~~~
 --------------------------------------------------------------------------------
     I made the class so that the program could be a little more coherent and
