@@ -14,7 +14,6 @@ Program Purpose: Create a median filter using Python library PIL.
     simply for the speed of the program.
 --------------------------------------------------------------------------------
 
-
 ~~~The Class~~~
 --------------------------------------------------------------------------------
     I made the class so that the program could be a little more coherent and
