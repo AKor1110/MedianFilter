@@ -75,7 +75,6 @@ class MedianFilter:
         return self.rgb_average
         
     def PixelAverage(self):
-        #rgb = self.ImagesRGB()
         pixels = self.Pixels()
         self.rgb_average = []
         return self.rgb_average
@@ -91,5 +90,3 @@ Filter = MedianFilter()
 start = time.time()
 Filter.MakePicture()
 print "This code took: " + str(time.time()-start) + " seconds."
-
-    

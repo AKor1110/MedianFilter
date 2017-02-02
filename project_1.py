@@ -72,5 +72,3 @@ Filter = MedianFilter()
 start = time.time()
 Filter.MakePicture()
 print "This code took: " + str(time.time()-start) + " seconds."
-
-    
