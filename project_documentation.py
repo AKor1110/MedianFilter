@@ -20,13 +20,6 @@ Program Purpose: Create a median filter using Python library PIL.
     list to be used accordingly. This function also stores two variables that
     store width and height concerning the picture dimensions.
 --------------------------------------------------------------------------------
-
-~~~The Pixels Function~~~
---------------------------------------------------------------------------------
-    This creates a list of all pixel coordinates using the width and height 
-    from the picture data and stored it all in a list. This sums up to almost
-    300,000 items in the list.
---------------------------------------------------------------------------------
     
 ~~~The ImagesRGB Function~~~
 --------------------------------------------------------------------------------
