@@ -60,7 +60,7 @@ class MedianFilter:
         print "Your new picture is ready!"
 
 png = []
-directory = '/home/ubuntu/workspace/Project'
+directory = os.path.dirname(os.path.realpath(__file__))
 for filename in os.listdir(directory):
     if filename.endswith(".png") and filename[0].isdigit():
         png.append(filename)
