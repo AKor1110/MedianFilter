@@ -22,13 +22,14 @@ Program Purpose: Create a median filter using Python library PIL.
     
 ~~~The ImagesRGB Function~~~
 --------------------------------------------------------------------------------
-    Primarily, I opened and loaded all the files. I couldn't really make 
-    this very modular, so I hardcoded it instead where I have an idea of the 
-    length of the list, and that the images are sorted. This leaves room for 
-    ambiguity as well as some knowledge of what is happening. I use list 
-    comprehension to put a list of lists of RGB values where each sublist
-    represents a pixel, and each sublist contains 9 RGB tuples, representative
-    of each image. I then return the big list.
+    Primarily, I created a list with all coordintes possible, then I opened and 
+    loaded all the files. I couldn't really make this very modular, so I 
+    hardcoded it instead where I have an idea of the length of the list, and 
+    that the images are sorted. This leaves room for ambiguity as well as some 
+    knowledge of what is happening. I use list comprehension to put a list of 
+    lists of RGB values where each sublist represents a pixel, and each sublist 
+    contains 9 RGB tuples, representative of each image. I then return the 
+    big list.
 --------------------------------------------------------------------------------
 
 ~~~The PixelAverage Function~~~
