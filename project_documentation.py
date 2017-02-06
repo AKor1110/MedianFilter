@@ -15,7 +15,7 @@ Program Purpose: Create a median filter using Python library PIL.
     
 ~~~The Init Function~~~
 --------------------------------------------------------------------------------
-    In this function, I initialized several variable that correspond to 
+    In this function, I initialized several variables that correspond to 
     dimensions of the pictures. This way, any list of files that is passed
     through the class is generalized and easy to reuse.
 --------------------------------------------------------------------------------
@@ -58,6 +58,8 @@ Program Purpose: Create a median filter using Python library PIL.
     Outisde of the class, I used a for loop to get all of the files in the 
     current directory and appended them all in a list to be used in the class
     call. This assumes that all files are "png" and the name begins with a 
-    number.
+    number. I call the class through the variable "Filter," then call the
+    instance of the class "MakePicture," which utilizes the other functions and
+    results in the final picture.
 --------------------------------------------------------------------------------
 '''
