@@ -1,5 +1,6 @@
 from PIL import Image
 import os
+
 class MedianFilter:
     def __init__(self, png):
         self.png = sorted(png)
@@ -18,6 +19,7 @@ class MedianFilter:
         img7 = Image.open(self.png[6]).load()
         img8 = Image.open(self.png[7]).load()
         img9 = Image.open(self.png[8]).load()
+        
         rgb = [[img1[coor[0], coor[1]], img2[coor[0], coor[1]], img3[coor[0], coor[1]],
                 img4[coor[0], coor[1]], img5[coor[0], coor[1]], img6[coor[0], coor[1]],
                 img7[coor[0], coor[1]], img8[coor[0], coor[1]], img9[coor[0], coor[1]]]
@@ -28,13 +30,9 @@ class MedianFilter:
         rgb = self.ImagesRGB()
         rgb_average = []
         for pixel in rgb:
-            r = []
-            g = []
-            b = []
-            for tup in pixel:
-                r.append(tup[0])
-                g.append(tup[1])
-                b.append(tup[2])
+            r = [tup[0] for tup in pixel]
+            g = [tup[1] for tup in pixel]
+            b = [tup[2] for tup in pixel]
             r_med = sorted(r)[len(r)/2]
             g_med = sorted(g)[len(g)/2]
             b_med = sorted(b)[len(b)/2]
@@ -46,9 +44,11 @@ class MedianFilter:
         new_image = Image.new('RGB',(self.img_width, self.img_height))
         new_image.putdata(rgb_average)
         new_image.save("final_project.png")
+
 png = []
 for filename in os.listdir(os.path.dirname(os.path.realpath(__file__))):
     if filename.endswith(".png") and filename[0].isdigit():
         png.append(filename)
+
 Filter = MedianFilter(png)
 Filter.MakePicture()
