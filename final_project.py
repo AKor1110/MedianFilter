@@ -18,7 +18,6 @@ class MedianFilter:
         img7 = Image.open(self.png[6]).load()
         img8 = Image.open(self.png[7]).load()
         img9 = Image.open(self.png[8]).load()
-        
         rgb = [[img1[coor[0], coor[1]], img2[coor[0], coor[1]], img3[coor[0], coor[1]],
                 img4[coor[0], coor[1]], img5[coor[0], coor[1]], img6[coor[0], coor[1]],
                 img7[coor[0], coor[1]], img8[coor[0], coor[1]], img9[coor[0], coor[1]]]
