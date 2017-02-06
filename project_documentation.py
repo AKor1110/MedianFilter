@@ -15,21 +15,20 @@ Program Purpose: Create a median filter using Python library PIL.
     
 ~~~The Init Function~~~
 --------------------------------------------------------------------------------
-    In this function, I hardcoded the picture file names, just to deal with
-    "ambiguity." I put all the file names in a list and took indices of that 
-    list to be used accordingly. This function also stores two variables that
-    store width and height concerning the picture dimensions.
+    In this function, I initialized several variable that correspond to 
+    dimensions of the pictures. This way, any list of files that is passed
+    through the class is generalized and easy to reuse.
 --------------------------------------------------------------------------------
     
 ~~~The ImagesRGB Function~~~
 --------------------------------------------------------------------------------
-    Primarily, I called the Pixels function to use the list of coordinates.
-    I then initialized an empty list called "rgb," where all the rgb value of
-    each pixel of each picture is stored in a nested list. I then opened all the
-    picture files and converted its data into rgb values instead of coordinates.
-    I then looped through all the coordinates of each picture, and stored the
-    rgb values at that pixel of each picture into a list. Finally, I returned
-    the list of rgb values.
+    Primarily, I opened and loaded all the files. I couldn't really make 
+    this very modular, so I hardcoded it instead where I have an idea of the 
+    length of the list, and that the images are sorted. This leaves room for 
+    ambiguity as well as some knowledge of what is happening. I use list 
+    comprehension to put a list of lists of RGB values where each sublist
+    represents a pixel, and each sublist contains 9 RGB tuples, representative
+    of each image. I then return the big list.
 --------------------------------------------------------------------------------
 
 ~~~The PixelAverage Function~~~
@@ -54,4 +53,11 @@ Program Purpose: Create a median filter using Python library PIL.
     fine.  I then save the image as a new file. Voila! It is done.
 --------------------------------------------------------------------------------
 
+~~~Outisde Of The Class~~~
+--------------------------------------------------------------------------------
+    Outisde of the class, I used a for loop to get all of the files in the 
+    current directory and appended them all in a list to be used in the class
+    call. This assumes that all files are "png" and the name begins with a 
+    number.
+--------------------------------------------------------------------------------
 '''

@@ -1,7 +1,5 @@
 from PIL import Image
 import os
-import time
-
 class MedianFilter:
     def __init__(self, png):
         self.png = sorted(png)
@@ -11,28 +9,20 @@ class MedianFilter:
         self.pixels = [(x,y) for y in range(self.img_height) for x in range(self.img_width)]
 
     def ImagesRGB(self):
-        rgb = []
-        img1 = Image.open(self.png[0]).convert('RGB')
-        img2 = Image.open(self.png[1]).convert('RGB')
-        img3 = Image.open(self.png[2]).convert('RGB')
-        img4 = Image.open(self.png[3]).convert('RGB')
-        img5 = Image.open(self.png[4]).convert('RGB')
-        img6 = Image.open(self.png[5]).convert('RGB')
-        img7 = Image.open(self.png[6]).convert('RGB')
-        img8 = Image.open(self.png[7]).convert('RGB')
-        img9 = Image.open(self.png[8]).convert('RGB')
+        img1 = Image.open(self.png[0]).load()
+        img2 = Image.open(self.png[1]).load()
+        img3 = Image.open(self.png[2]).load()
+        img4 = Image.open(self.png[3]).load()
+        img5 = Image.open(self.png[4]).load()
+        img6 = Image.open(self.png[5]).load()
+        img7 = Image.open(self.png[6]).load()
+        img8 = Image.open(self.png[7]).load()
+        img9 = Image.open(self.png[8]).load()
         
-        for coor in self.pixels:
-            rgb.append([img1.getpixel(coor),
-                        img2.getpixel(coor),
-                        img3.getpixel(coor),
-                        img4.getpixel(coor),
-                        img5.getpixel(coor),
-                        img6.getpixel(coor),
-                        img7.getpixel(coor),
-                        img8.getpixel(coor),
-                        img9.getpixel(coor)
-                        ])
+        rgb = [[img1[coor[0], coor[1]], img2[coor[0], coor[1]], img3[coor[0], coor[1]],
+                img4[coor[0], coor[1]], img5[coor[0], coor[1]], img6[coor[0], coor[1]],
+                img7[coor[0], coor[1]], img8[coor[0], coor[1]], img9[coor[0], coor[1]]]
+                for coor in self.pixels]
         return rgb
         
     def PixelAverage(self):
@@ -57,15 +47,9 @@ class MedianFilter:
         new_image = Image.new('RGB',(self.img_width, self.img_height))
         new_image.putdata(rgb_average)
         new_image.save("final.png")
-        print "Your new picture is ready!"
-
 png = []
-directory = os.path.dirname(os.path.realpath(__file__))
-for filename in os.listdir(directory):
+for filename in os.listdir(os.path.dirname(os.path.realpath(__file__))):
     if filename.endswith(".png") and filename[0].isdigit():
         png.append(filename)
-        
 Filter = MedianFilter(png)
-start = time.time()
 Filter.MakePicture()
-print "This code took: " + str(time.time()-start) + " seconds."
