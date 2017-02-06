@@ -46,7 +46,7 @@ class MedianFilter:
         rgb_average = self.PixelAverage()
         new_image = Image.new('RGB',(self.img_width, self.img_height))
         new_image.putdata(rgb_average)
-        new_image.save("final.png")
+        new_image.save("final_project.png")
 png = []
 for filename in os.listdir(os.path.dirname(os.path.realpath(__file__))):
     if filename.endswith(".png") and filename[0].isdigit():
