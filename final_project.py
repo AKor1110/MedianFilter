@@ -1,5 +1,6 @@
 from PIL import Image
 import os
+# https://github.com/CSUMB-SP17-CST205/team6-akor-project1
 #-------------------------------------------------------------------------------
 class MedianFilter:
     def __init__(self, png):
